@@ -4,11 +4,15 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Inicio from "./paginas/Inicio";
 import SobreMim from "./paginas/SobreMim";
+import Menu from "./componentes/Menu";
 
-function App() {
+function AppRoutes() {
   return (
     // o BrowserRouter e um componente que vai nos permitir utilizar alguns componentes do react router dom para ter um sistemas de rotas
     <BrowserRouter>
+
+      {/* o Menu de navegaçao vai ser o componente que vai nos permitir mostrar o menu em todas as tela */}
+      <Menu />
 
       {/* o Routes vai ser o nosso roteador ele que vai decidir qual e a rota que vai mostrar na tela  */}
       <Routes>
@@ -24,11 +28,9 @@ function App() {
         o * funciona como um servidor coringa do react router dom, essa rota com * ela e selecionando quando o caminho nao e identificado  */}
         <Route path="*" element={<h2>Página nao encontrada</h2>} />
 
-        
-
       </Routes>
     </BrowserRouter>
   );
 }
 
-export default App;
+export default AppRoutes;
