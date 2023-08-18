@@ -1,39 +1,29 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import styles from './MenuLink.module.css'
-import { Link, useLocation } from 'react-router-dom'
 
-// vamos criar props children e to
-export default function MenuLink({children, to}) {
-    
-    // vamos implementar um detalhe para deixar o link sublinhado quando estamos na pagina correspondente
+// vamos criar props children para receber o nome do link e to que vai indicar o caminho
+export default function MenuLink({ children, to }) {
 
-    // o useLocation() e um hook do react router dom que vai retornar um objeto que contem a informação da localização
-    const localizacao = useLocation()
+    return (
+      /* <NavLink> vai subestituir a tag <a> e to='' end vai subestituir o href
+      vai evitar o recarregamento da pagina do navegador quando for mudar de pagina */
+        <NavLink
+            className={({ isActive }) => `
+                ${styles.link}
 
-  return (
-    /* <Link> vai subestituir a tag <a> e to='' sutbstitui o href
-    vai evitar o recarregamento da pagina do navegador quando for mudar, fazendo se sentir em uma aplicaçao desktop */
-    <Link className={`
-        ${styles.link}
+                // deixando o link sublinhado na pagina correspondente
+                ${isActive ? styles.linkDestacado : ""}
+            `}
+            // vamos subestituir to='/' = pela props to = to={to} end> 
+            to={to} end
+        >
+          {/* vamos subestituir o nome do link pela props children */}
+          {children}
 
-        /* 
-         deixando o link sublinhado na pagina correspondente
-         o pathname vai retornar o caminho atual, ?:se for verdadeiro vai aplicar o styles.linkDestacado que vai deixar o link sublinhado se for falso vai aplicar nada
-
-         localizacao.pathname === '/' ? styles.linkDestacado : ""
-
-         vamos subestituir '/' = pela props to
-        */
-
-        ${localizacao.pathname === to ? styles.linkDestacado : ""}
-
-        vamos subestituir to='/' = pela props to = to={to}>
-    `} to={to}>
-
-        {/* vamos subestituir o nome do link pela props children */}
-        {children}
-    </Link>
-  )
+        </NavLink>
+    )
 }
+
 
 // agora importe o MenuLink no arquivo Menu.js e utilize para criar os links
