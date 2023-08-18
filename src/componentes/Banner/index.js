@@ -31,4 +31,4 @@ export default function Banner() {
   )
 }
 
-// agora importe o Banner na pagina inicio arquivo index.js e utilize para criar os links
+// vamos criar um componente chamado PaginaPadrao que vai guardar a estrutura do banner para usarmos no AppRoutes

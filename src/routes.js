@@ -6,6 +6,7 @@ import Inicio from "./paginas/Inicio";
 import SobreMim from "./paginas/SobreMim";
 import Menu from "./componentes/Menu";
 import Rodape from "componentes/Rodape";
+import PaginaPadrao from "componentes/PaginaPadrao";
 
 function AppRoutes() {
   return (
@@ -18,12 +19,18 @@ function AppRoutes() {
       {/* o Routes vai ser o nosso roteador ele que vai decidir qual e a rota que vai mostrar na tela  */}
       <Routes>
 
-        {/* dentro do Route vamos colocar as informaçoes da rota path="/" = caminho, element={} = vai mostrar uma pagina especifica
-        http://localhost:3000/ = pagina Inicio */}
-        <Route path="/" element={<Inicio />} />
+        {/* essa Route vai mostrar a PaginaPadrao aonde nela contem o banner
+        dentro dessa Route vamos colocar as paginas que contém o banner */}
+        <Route path="/" element={<PaginaPadrao />}>
 
-        {/* http://localhost:3000/sobremim = pagina SobreMim */}
-        <Route path="/sobremim" element={<SobreMim />} />
+          {/* dentro do Route vamos colocar as informaçoes da rota path="/" = caminho, element={} = vai mostrar uma pagina especifica
+          http://localhost:3000/ = pagina Inicio */}
+          <Route path="/" element={<Inicio />} />
+
+          {/* http://localhost:3000/sobremim = pagina SobreMim */}
+          <Route path="/sobremim" element={<SobreMim />} />
+
+        </Route>
 
         {/* http://localhost:3000/xxxwewf = quando nao conseguir indetificar o caminho da route
         o * funciona como um servidor coringa do react router dom, essa rota com * ela e selecionando quando o caminho nao e identificado  */}
