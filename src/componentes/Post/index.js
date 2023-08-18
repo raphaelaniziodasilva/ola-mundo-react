@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Post.module.css'
 
-// vamos criar props post para setar no img
+// vamos criar props post
 export default function Post({post}) {
   return (
     <div className={styles.post}>
