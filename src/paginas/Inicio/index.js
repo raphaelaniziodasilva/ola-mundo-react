@@ -7,7 +7,7 @@ import React from 'react'
 import styles from './Inicio.module.css'
 // importando um array de objeto aonde contem informaçoes dos posts
 import posts from './posts.json'
-import Post from 'componentes/Post'
+import PostCard from 'componentes/PostCard'
 
 export default function Inicio() {
   return (
@@ -22,8 +22,8 @@ export default function Inicio() {
 
           {/* agora precisamos criar os cards do posts, vamos criar um componente Post para a criaçao dos cards */}
 
-          <Post
-          // passando a props post e setando o parametro post  para fazer uma iteracao do array
+          <PostCard
+            // passando a props post e setando o parametro post do metodo map para fazer uma iteracao do array
             post={post}
           />
         </li>
@@ -31,3 +31,5 @@ export default function Inicio() {
     </ul>
   )
 }
+
+// agora importe a pagina Inicio no arquivo routes.js dentro de <Routes> adicione a rota da pagina Inicio dentro da <Route path="/" element={<PaginaPadrao />}> que e a pagina pai

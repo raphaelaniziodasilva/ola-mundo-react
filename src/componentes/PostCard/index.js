@@ -1,10 +1,15 @@
 import React from 'react'
 import styles from './Post.module.css'
+import { Link } from 'react-router-dom'
 
 // vamos criar props post
-export default function Post({post}) {
+export default function PostCard({post}) {
   return (
-    <div className={styles.post}>
+    // usando a props post para indicando o caminho dinamico do id
+    <Link to={`/post/${post.id}`}>
+      {/* agora volte para a pagina Post */}
+
+      <div className={styles.post}>
       <img
         className={styles.capa}
         // usando a props post para indicando o caminho dinamico da foto que esta arquivo posts.json
@@ -19,7 +24,8 @@ export default function Post({post}) {
 
       <button className={styles.botaoLer}> Ler </button>
     </div>
+    </Link>
   )
 }
 
-// agora importe o Post na pasta inicio no arquivo index.js e utilize para criar os cards de posts
+// agora importe o PostCard na pagina inicio no arquivo index.js e utilize para criar os cards de posts

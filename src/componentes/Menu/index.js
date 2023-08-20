@@ -26,4 +26,4 @@ export default function Menu() {
   )
 }
 
-// agora importe o Menu de navegaçao no arquivo App.js antes de <Routes>
+// agora importe o Menu de navegaçao no arquivo routes.js antes de <Routes>

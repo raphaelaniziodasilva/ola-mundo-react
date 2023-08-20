@@ -7,6 +7,7 @@ import SobreMim from "./paginas/SobreMim";
 import Menu from "./componentes/Menu";
 import Rodape from "componentes/Rodape";
 import PaginaPadrao from "componentes/PaginaPadrao";
+import Post from "paginas/Post";
 
 function AppRoutes() {
   return (
@@ -25,10 +26,13 @@ function AppRoutes() {
 
           {/* dentro do Route vamos colocar as informaçoes da rota path="/" = caminho, element={} = vai mostrar uma pagina especifica
           http://localhost:3000/ = pagina Inicio */}
-          <Route path="/" element={<Inicio />} />
+          <Route index element={<Inicio />} />
 
           {/* http://localhost:3000/sobremim = pagina SobreMim */}
-          <Route path="/sobremim" element={<SobreMim />} />
+          <Route path="sobremim" element={<SobreMim />} />
+
+          {/* http://localhost:3000/post/id = pagina Post que tem o id definido*/}
+          <Route path="post/:id" element={<Post />} />
 
         </Route>
 

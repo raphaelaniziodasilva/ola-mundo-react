@@ -38,8 +38,7 @@ export default function SobreMim() {
       </p>
 
     </PostModelo>
-    
-
-    
   )
 }
+
+// agora importe a pagina SobreMim no arquivo routes.js dentro de <Routes> adicione a rota da pagina SobreMim dentro da <Route path="/" element={<PaginaPadrao />}> que e a pagina pai
