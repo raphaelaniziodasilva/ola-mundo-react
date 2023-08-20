@@ -8,6 +8,7 @@ import Menu from "./componentes/Menu";
 import Rodape from "componentes/Rodape";
 import PaginaPadrao from "componentes/PaginaPadrao";
 import Post from "paginas/Post";
+import NaoEncontrada from "paginas/NaoEncontrada";
 
 function AppRoutes() {
   return (
@@ -38,7 +39,7 @@ function AppRoutes() {
 
         {/* http://localhost:3000/xxxwewf = quando nao conseguir indetificar o caminho da route
         o * funciona como um servidor coringa do react router dom, essa rota com * ela e selecionando quando o caminho nao e identificado  */}
-        <Route path="*" element={<h2>Página nao encontrada</h2>} />
+        <Route path="*" element={<NaoEncontrada />} />
 
       </Routes>
 

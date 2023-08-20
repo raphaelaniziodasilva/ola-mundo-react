@@ -23,6 +23,11 @@ export default function Post() {
     // comparando o id de cada objeto do array posts com o o da variável parametros.id se for true vai retornar o objeto
     return post.id === Number(parametros.id)
   })
+  
+  // se o parametro id não for encontrado vai retornar um erro
+  if(!post) {
+    return <h1>Post não encontrado</h1>
+  }
 
   return (
     <PostModelo
