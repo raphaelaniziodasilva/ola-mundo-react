@@ -55,4 +55,7 @@ export default function NaoEncontrada() {
   )
 }
 
-// agora importe a pagina NaoEncontrada no arquivo routes.js dentro de <Routes> adicione a rota da pagina NaoEncontrada na <Route path="*">
+// importe a pagina NaoEncontrada no arquivo routes.js dentro de <Routes> adicione a rota da pagina NaoEncontrada na <Route path="*">
+
+// agora importe a pagina NaoEncontrada na pagina Post 
+

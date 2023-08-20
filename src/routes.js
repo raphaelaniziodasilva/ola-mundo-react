@@ -32,10 +32,11 @@ function AppRoutes() {
           {/* http://localhost:3000/sobremim = pagina SobreMim */}
           <Route path="sobremim" element={<SobreMim />} />
 
-          {/* http://localhost:3000/post/id = pagina Post que tem o id definido*/}
-          <Route path="post/:id" element={<Post />} />
-
         </Route>
+
+        {/* http://localhost:3000/post/id = pagina Post que tem o id definido*/}
+        <Route path="post/:id" element={<Post />} />
+        {/* com a rota Post fora da Route que contem o banner PaginaPadrao, vamos resolver esse problema va para a pagina Post */}
 
         {/* http://localhost:3000/xxxwewf = quando nao conseguir indetificar o caminho da route
         o * funciona como um servidor coringa do react router dom, essa rota com * ela e selecionando quando o caminho nao e identificado  */}

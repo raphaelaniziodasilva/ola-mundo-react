@@ -1,9 +1,11 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { Routes, Route, useParams } from 'react-router-dom'
 import posts from '../Inicio/posts.json'
 import PostModelo from 'componentes/PostModelo'
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import './Post.css'
+import NaoEncontrada from 'paginas/NaoEncontrada'
+import PaginaPadrao from 'componentes/PaginaPadrao'
 
 export default function Post() {
   /* 
@@ -26,31 +28,43 @@ export default function Post() {
   
   // se o parametro id não for encontrado vai retornar um erro
   if(!post) {
-    return <h1>Post não encontrado</h1>
+    // return <h1>Pagina: Post não encontrado</h1>
+    return <NaoEncontrada />
   }
 
   return (
-    <PostModelo
-      // usando a props fotoCapa e passando o parametro post do metodo filter para pegar o id da foto que esta na lista: array de objetos na pagina Inicio no arquivo posts.json  
-      fotoCapa={`/assets/posts/${post.id}/capa.png`}
+    // resolvendo o problema da rota Post que esta fora da Route que contem o banner
+    <Routes>
 
-      // usando a props titulo e passando o parametro post do metodo filter para pegar o titulo que esta na lista: array de objetos na pagina Inicio no arquivo posts.json
-      titulo={post.titulo}
-    >
-      {/* vamos instalar a bliblioteca de Markdown: npm install react-markdown
-       essa bliblioteca de markdown vai nos ajudar a transformar o texto escrito em markdown em uma linguagem do html que vai ser renderizado de forma dinamica*/}
-      <div className='post-markdown-container'>
+      {/* adicionando a PaginaPadrao aonde nela contem o banner */}      
+      <Route path='*' element={<PaginaPadrao />}>
 
-        {/* utilizando a bliblioteca de react-markdown */}
-        <ReactMarkdown>
+        {/* esse Route vai renderizar o jsx de um post encontrado */}
+        <Route index element={
+          <PostModelo
+            // usando a props fotoCapa e passando o parametro post do metodo filter para pegar o id da foto que esta na lista: array de objetos na pagina Inicio no arquivo posts.json  
+            fotoCapa={`/assets/posts/${post.id}/capa.png`}
+      
+            // usando a props titulo e passando o parametro post do metodo filter para pegar o titulo que esta na lista: array de objetos na pagina Inicio no arquivo posts.json
+            titulo={post.titulo}
+          >
+            {/* vamos instalar a bliblioteca de Markdown: npm install react-markdown
+            essa bliblioteca de markdown vai nos ajudar a transformar o texto escrito em markdown em uma linguagem do html que vai ser renderizado de forma dinamica*/}
+            <div className='post-markdown-container'>
+    
+              {/* utilizando a bliblioteca de react-markdown */}
+              <ReactMarkdown>
+      
+                {/* usando o parametro post do metodo filter para pegar o texto que esta   inscrito em Markdown na pagina Inicio no arquivo posts.json */}
+                {post.texto}
+              </ReactMarkdown>
+            </div>
+    
+          </PostModelo>
+        } />
 
-          {/* usando o parametro post do metodo filter para pegar o texto que esta   inscrito em Markdown na pagina Inicio no arquivo posts.json */}
-          {post.texto}
-        </ReactMarkdown>
-
-      </div>
-
-    </PostModelo>
+      </Route>
+    </Routes>
   )
 }
 
