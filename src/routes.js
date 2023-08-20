@@ -9,11 +9,14 @@ import Rodape from "componentes/Rodape";
 import PaginaPadrao from "componentes/PaginaPadrao";
 import Post from "paginas/Post";
 import NaoEncontrada from "paginas/NaoEncontrada";
+import ScrollToTop from "componentes/ScrollTopTop";
 
 function AppRoutes() {
   return (
     // o BrowserRouter e um componente que vai nos permitir utilizar alguns componentes do react router dom para ter um sistemas de rotas
     <BrowserRouter>
+    
+      <ScrollToTop />
 
       {/* o Menu de navegaçao vai ser o componente que vai nos permitir mostrar o menu em todas as tela */}
       <Menu />

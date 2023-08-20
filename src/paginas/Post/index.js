@@ -6,6 +6,8 @@ import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import './Post.css'
 import NaoEncontrada from 'paginas/NaoEncontrada'
 import PaginaPadrao from 'componentes/PaginaPadrao'
+import styles from './Post.module.css'
+import PostCard from 'componentes/PostCard'
 
 export default function Post() {
   /* 
@@ -31,6 +33,14 @@ export default function Post() {
     // return <h1>Pagina: Post não encontrado</h1>
     return <NaoEncontrada />
   }
+
+  // filtrando os posts mais recomendados
+  const postsRecomendados = posts
+  .filter((post) => post.id !== Number(parametros.id))
+  .sort((a, b) => b.id - a.id)
+  .slice(0, 4)
+  // imprima la embaixo no PostModelo
+
 
   return (
     // resolvendo o problema da rota Post que esta fora da Route que contem o banner
@@ -59,6 +69,22 @@ export default function Post() {
                 {post.texto}
               </ReactMarkdown>
             </div>
+
+            {/* posts recomendados */}
+            <h2 className={styles.tituloOutrosPosts}>
+              Outros posts que você pode gostar:
+            </h2>
+
+            {/* posts recomendados */}
+            <ul className={styles.postsRecomendados}>
+              {postsRecomendados.map((post) => (
+                <li key={post.id}>
+                  <PostCard
+                    post={post}
+                  />
+                </li>
+              ))}
+            </ul>
     
           </PostModelo>
         } />
