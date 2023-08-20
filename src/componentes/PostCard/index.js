@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './Post.module.css'
 import { Link } from 'react-router-dom'
+import BotaoPrincipal from 'componentes/BotaoPrincipal'
 
 // vamos criar props post
 export default function PostCard({post}) {
@@ -22,7 +23,10 @@ export default function PostCard({post}) {
         {post.titulo}
       </h2>
 
-      <button className={styles.botaoLer}> Ler </button>
+      <BotaoPrincipal>
+        {/* utilizando a props children do botao para dar nome ao botao */}
+        Ler
+      </BotaoPrincipal>
     </div>
     </Link>
   )

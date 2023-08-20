@@ -1,8 +1,16 @@
 import React from 'react'
 import styles from './NaoEncontrada.module.css'
 import error404 from 'assets/erro_404.png'
+import BotaoPrincipal from 'componentes/BotaoPrincipal'
+import { useNavigate } from 'react-router-dom'
 
 export default function NaoEncontrada() {
+    /*
+     funcionalidade de voltar para a pagina anterior 
+     useNavigate() é um hook que permite navegar entre diferentes rotas dentro de uma aplicação web sem a necessidade de recarregar a página
+    */
+    const navegar = useNavigate()
+
   return (
     <>
         <div className={styles.conteudoContainer}>
@@ -21,8 +29,18 @@ export default function NaoEncontrada() {
                 Aguarde uns instantes e recarregue a página, ou volte para a página inicial.
             </p>
 
-            <div className={styles.botaoContainer}>
-                <button> Voltar </button>
+            <div 
+                className={styles.botaoContainer}
+                
+                // funcionalidade de voltar para a pagina anterior utilizando onClick para voltar para a pagina anterior
+                onClick={() => navegar(-1)}
+            >
+                <BotaoPrincipal
+                    // utilizando a props tamanho para aumentar o tamanho do botao
+                    tamanho="lg"
+                > 
+                    Voltar 
+                </BotaoPrincipal>
             </div>
 
             <img
